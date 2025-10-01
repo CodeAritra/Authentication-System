@@ -5,9 +5,6 @@ const app = express();
 
 const PORT = 5000
 
-console.log('====================================')
-console.log("hiaritra")
-console.log('====================================')
 
 mongoose
   .connect("mongodb://localhost:27017")
