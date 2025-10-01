@@ -5,6 +5,10 @@ const app = express();
 
 const PORT = 5000
 
+console.log('====================================')
+console.log("hi")
+console.log('====================================')
+
 mongoose
   .connect("mongodb://localhost:27017")
   .then(()=>app.listen(PORT,()=>console.log(`Server running in ${PORT}`)))
