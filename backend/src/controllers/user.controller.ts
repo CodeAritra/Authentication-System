@@ -27,7 +27,7 @@ export const signup = async (req: Request, res: Response) => {
     });
 
     const token = jwt.sign(
-      { id: createdUser._id },
+      { user: createdUser },
       process.env.ACCESS_TOKEN_SECRET || ""
     );
 
@@ -45,7 +45,7 @@ export const signup = async (req: Request, res: Response) => {
 
 export const login = async (req: Request, res: Response) => {
   try {
-    const { name, email, password } = req.body;
+    const { email, password } = req.body;
 
     if (!email || !password)
       return res
@@ -68,7 +68,7 @@ export const login = async (req: Request, res: Response) => {
         .json({ success: false, message: "Invalid credentials" });
 
     const token = jwt.sign(
-      { id: user._id },
+      { user: user },
       process.env.ACCESS_TOKEN_SECRET || ""
     );
 
