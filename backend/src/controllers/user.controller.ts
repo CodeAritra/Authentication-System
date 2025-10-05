@@ -28,7 +28,7 @@ export const signup = async (req: Request, res: Response) => {
 
     const token = jwt.sign(
       { user: createdUser },
-      process.env.ACCESS_TOKEN_SECRET || ""
+      process.env.ACCESS_TOKEN_SECRET || "very_secret"
     );
 
     res.cookie("auth_cookie", token);
@@ -69,7 +69,7 @@ export const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign(
       { user: user },
-      process.env.ACCESS_TOKEN_SECRET || ""
+      process.env.ACCESS_TOKEN_SECRET || "very_secret"
     );
 
     res.cookie("auth_cookie", token);

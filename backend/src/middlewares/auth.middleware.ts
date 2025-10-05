@@ -15,7 +15,7 @@ export const requireAuth = (
         .json({ success: false, message: "No token provided" });
     }
 
-    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET!);
+    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET || "very_secret");
 
     req.user = decoded;
     next();
